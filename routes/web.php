@@ -18,9 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome',[
+        'title' => 'Praktikum-PWL',
         'isi_data' => 'Halaman Awal'
     ]);
 });
 Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
-Route::get('/dosen', [DosenController::class, 'dosen']);
+Route::get('/dosen', [DosenController::class, 'index']);
 
