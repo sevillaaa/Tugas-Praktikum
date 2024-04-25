@@ -22,6 +22,12 @@ Route::get('/', function () {
         'isi_data' => 'Halaman Awal'
     ]);
 });
-Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
-Route::get('/dosen', [DosenController::class, 'index']);
+Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('index');
+Route::get('/mahasiswa/create', [MahasiswaController::class, 'create'])->name('create');
+Route::POST('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('store');
+Route::get('/mahasiswa/edit/{$id_mahasiswa}', [MahasiswaController::class, 'edit'])->name('edit');
+Route::put('/mahasiswa/update/{$id_mahasiswa}', [MahasiswaController::class, 'update'])->name('update');
+// Route::get('/dosen', [DosenController::class, 'index']);
+// Route::get('/dosen/create', [DosenController::class, 'create']);
+// Route::get('/dosen/store', [DosenController::class, 'store']);
 

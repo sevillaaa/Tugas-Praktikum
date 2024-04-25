@@ -10,8 +10,13 @@ class Ktd extends Model
     use HasFactory;
 
     protected $table = 'ktd';
+
     protected $primaryKey = 'id_dosen';
-    public $timeStamps = false;
+
+    public $timestamps = false;
+
+    protected $fillable = ['nip', 'nidn'];
+
     public function dosen_ktd()
     {
         $this->belongsTo(Dosen::class);

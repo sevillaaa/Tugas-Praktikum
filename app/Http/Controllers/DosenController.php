@@ -25,7 +25,7 @@ class DosenController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -33,7 +33,20 @@ class DosenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'nip' => 'required|unique:dosen',
+            'email' => 'required',
+            'jabatan' => 'required',
+        ]);
+
+        $dosen = new Dosen;
+        $dosen->nama = $request->nama;
+        $dosen->nip = $request->nip;
+        $dosen->jurusan = $request->email;
+        $dosen->jabatan = $request->jabatan;
+        $dosen->save();
+        return redirect()->route('index');
     }
 
     /**

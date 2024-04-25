@@ -9,8 +9,12 @@ class Dosen extends Model
 {
     use HasFactory;
     protected $table = 'dosen';
+
     protected $primaryKey = 'id_dosen';
-    public $timeStamps = false;
+    
+    public $timestamps = false;
+
+    protected $fillable = ['nama', 'nip', 'email', 'jabatan'];
 
     public function ktd()
     {

@@ -13,6 +13,10 @@ class Ktm extends Model
 
     protected $primaryKey = 'id_ktm';
 
+    public $timestamps = false;
+    
+    protected $fillable = ['nim', 'nomor_identitas'];
+
     public function mahasiswa(){
         return $this->belongsTo(Mahasiswa::class);
     }
