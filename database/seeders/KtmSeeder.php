@@ -13,6 +13,6 @@ class KtmSeeder extends Seeder
      */
     public function run(): void
     {
-        Ktm::factory(8)->create();
+        Ktm::factory(6)->create();
     }
 }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('ktd', function (Blueprint $table) {
             $table->id('id_ktd');
-            $table->string('nip', 30)->unique();
+            $table->string('nip', 10)->unique();
             $table->string('nidn', 12)->unique();
 
             $table->foreign('nip')->references('nip')->on('dosen');

@@ -21,8 +21,8 @@ class KtmFactory extends Factory
     public function definition()
     {
         return [
-            'id_mahasiswa' => $this->faker->unique()->numerify('#########'),
-            'nomor_identitas' => $this->faker->unique()->numerify('KTM#####'),
+            'nim' => $this->faker->unique()->numerify('#########'),
+            'nomor_identitas' => $this->faker->numerify('KTM#####'),
         ];
         
     }
