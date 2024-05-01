@@ -33,12 +33,13 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama' => 'required',
-            'nim' => 'required|unique:mahasiswa',
-            'jurusan' => 'required',
-            'alamat' => 'required',
-        ]);
+    //    $request->validate([
+    //         'nama' => 'required',
+    //         'nim' => 'required|unique:mahasiswa',
+    //         'jurusan' => 'required',
+    //         'alamat' => 'required',
+    //         'no_identitas' => 'required'
+    //     ]);
 
         $mahasiswa = new Mahasiswa;
         $mahasiswa->nama = $request->nama;
@@ -46,6 +47,7 @@ class MahasiswaController extends Controller
         $mahasiswa->jurusan = $request->jurusan;
         $mahasiswa->alamat = $request->alamat;
         $mahasiswa->save();
+
         return redirect()->route('index');
     }
 
@@ -63,7 +65,9 @@ class MahasiswaController extends Controller
     public function edit(string $id_mahasiswa)
     {
         $mahasiswa = Mahasiswa::find($id_mahasiswa);
-        return view('update', ['mahasiswa'=> $mahasiswa]);
+        return view('update', [
+            'mahasiswa'=> $mahasiswa
+        ]);
     }
 
     /**
@@ -73,10 +77,12 @@ class MahasiswaController extends Controller
     {
         // $request->validate([
         //     'nama' => 'required',
-        //     'nim' => 'required|unique:mahasiswa',
+        //     'nim' => 'required',
         //     'jurusan' => 'required',
         //     'alamat' => 'required',
+        //     'no_identitas' => 'required'
         // ]);
+
         $mahasiswa = Mahasiswa::find($id_mahasiswa);
 
         $mahasiswa->nama = $request->nama;
@@ -84,6 +90,8 @@ class MahasiswaController extends Controller
         $mahasiswa->jurusan = $request->jurusan;
         $mahasiswa->alamat = $request->alamat;
         $mahasiswa->save();
+        $ktm->save();
+        
         return redirect()->route('index');
     }
 
@@ -92,6 +100,21 @@ class MahasiswaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // delete
+        $mahasiswa = Mahasiswa::find($id);
+        $mahasiswa->delete();
+
+        return redirect()->route('index');
     }
 }
+
+//     public function delete(string $id_mahasiswa)
+//     {
+//         $mahasiswa = Mahasiswa::find($id_mahasiswa);
+
+//         $ktm->delete();
+//         $mahasiswa->delete();
+
+//         return redirect()->route('index');
+//     }
+// }

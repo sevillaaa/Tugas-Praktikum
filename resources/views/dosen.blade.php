@@ -16,6 +16,7 @@
                 <th scope="row">Email</th>
                 <th scope="col">Jabatan</th>
                 <th scope="col">Aksi</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -24,7 +25,7 @@
         <th scope="row">{{ $dsn -> id_dosen }}</th>
         <td>{{ $dsn->nama }}</td>
         <td>{{ $dsn->nip}}</td>
-        <td>{{ $dsn->ktd->nidn }}</td>
+        <td>{{ $dsn->ktd?->nidn }}</td>
         <td>{{ $dsn->email }}</td>
         <td>{{ $dsn->jabatan}}</td>
         <td>

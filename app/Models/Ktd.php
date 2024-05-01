@@ -11,7 +11,7 @@ class Ktd extends Model
 
     protected $table = 'ktd';
 
-    protected $primaryKey = 'id_dosen';
+    protected $primaryKey = 'id_ktd';
 
     public $timestamps = false;
 
@@ -19,6 +19,6 @@ class Ktd extends Model
 
     public function dosen_ktd()
     {
-        $this->belongsTo(Dosen::class);
+        return $this->belongsTo(Dosen::class);
     }
 }

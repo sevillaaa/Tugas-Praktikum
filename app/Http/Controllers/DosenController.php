@@ -25,7 +25,9 @@ class DosenController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('create', [
+            'title' => 'Create'
+        ]);
     }
 
     /**
@@ -33,12 +35,12 @@ class DosenController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama' => 'required',
-            'nip' => 'required|unique:dosen',
-            'email' => 'required',
-            'jabatan' => 'required',
-        ]);
+        // $request->validate([
+        //     'nama' => 'required',
+        //     'nip' => 'required|unique:dosen',
+        //     'email' => 'required',
+        //     'jabatan' => 'required',
+        // ]);
 
         $dosen = new Dosen;
         $dosen->nama = $request->nama;
@@ -62,13 +64,16 @@ class DosenController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // $dosen = Dosen::find($id_dosen);
+        // return view('update', [
+        //     'dosen'=> $dosen
+        // ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id_dosen)
     {
         //
     }

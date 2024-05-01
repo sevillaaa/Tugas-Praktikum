@@ -14,7 +14,7 @@ class Dosen extends Model
     
     public $timestamps = false;
 
-    protected $fillable = ['nama', 'nip', 'email', 'jabatan'];
+    // protected $fillable = ['id_dosen', 'nama', 'nip', 'email', 'jabatan'];
 
     public function ktd()
     {

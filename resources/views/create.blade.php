@@ -12,7 +12,7 @@
     <div class="container">
         <h2 class="mt-4">Form Tambah Data Mahasiswa</h2>
         
-        <form action="{{route('store')}}" method="POST">
+        <form action="{{ route('store') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="nama">Nama:</label>
@@ -30,8 +30,8 @@
             </div>
 
             <div class="form-group">
-                <label for="no_identitas">Alamat:</label>
-                <input type="text" class="form-control" name="alamat" id="no_identitas"  required>
+                <label for="alamat">Alamat:</label>
+                <input type="text" class="form-control" name="alamat" id="alamat"  required>
             </div>
 
             <button type="submit" class="btn btn-primary mt-3">Tambah</button>

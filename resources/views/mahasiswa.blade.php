@@ -15,7 +15,6 @@
                 <th scope="col">Jurusan</th>
                 <th scope="col">Alamat</th>
                 <th scope="col">Aksi</th>
-                {{-- <th scope="col">Nomor Identitas</th> --}}
               </tr>
             </thead>
             <tbody>
@@ -26,10 +25,14 @@
                 <td>{{$mhs->nim}}</td>
                 <td>{{$mhs->jurusan}}</td>
                 <td>{{$mhs->alamat}}</td>
-                {{-- <td>{{$mhs->ktm->nomor_identitas}}</td> --}}
                 <td>
-                <a href="{{route(edit, $mhs->id_mahasiswa)}}"><button type="button" class="btn btn-primary">Update</button></a>
-                    <button type="button" class="btn btn-danger">Hapus</button>
+                    <a href="{{route('edit', $mhs->id_mahasiswa)}}"><button type="button" class="btn btn-primary">Update</button>
+                    <form action="{{ route('destroy', $mhs->id_mahasiswa) }}" method="post" class="d-inline">
+                    @csrf
+                    @method('DELETE') <!-- Tambahkan ini untuk menentukan metode DELETE -->
+                    <input type="hidden" name="id_mahasiswa" value="{{ $mhs->id_mahasiswa }}">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                  </form>
                 </td>
               </tr>
               @endforeach

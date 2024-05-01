@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CreateController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MahasiswaController;
 
@@ -19,15 +20,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome',[
         'title' => 'Praktikum-PWL',
-        'isi_data' => 'Halaman Awal'
+        'isi_data' => 'Sevilla Claudia Depari - 231402058'
     ]);
 });
+
 Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('index');
 Route::get('/mahasiswa/create', [MahasiswaController::class, 'create'])->name('create');
-Route::POST('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('store');
-Route::get('/mahasiswa/edit/{$id_mahasiswa}', [MahasiswaController::class, 'edit'])->name('edit');
-Route::put('/mahasiswa/update/{$id_mahasiswa}', [MahasiswaController::class, 'update'])->name('update');
-// Route::get('/dosen', [DosenController::class, 'index']);
-// Route::get('/dosen/create', [DosenController::class, 'create']);
-// Route::get('/dosen/store', [DosenController::class, 'store']);
-
+Route::get('/dosen', [DosenController::class, 'index'])->name('index');
+Route::get('/dosen/create', [DosenController::class, 'create']);
+Route::post('/dosen/store', [DosenController::class, 'store'])->name('store');
+Route::get('/dosen/edit/{id_dosen}', [DosenController::class, 'edit'])->name('edit');
+Route::put('/dosen/update/{id_dosen', [DosenController::class, 'update'])->name('update');
+Route::post('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('store');
+Route::get('/mahasiswa/edit/{id_mahasiswa}', [MahasiswaController::class, 'edit'])->name('edit');
+Route::put('/mahasiswa/update/{id_mahasiswa}', [MahasiswaController::class, 'update'])->name('update');
+Route::delete('/mahasiswa/destroy/{id_mahasiswa}', [MahasiswaController::class, 'destroy'])->name('destroy');
+Route::delete('/mahasiswa/{id_mahasiswa}', [MahasiswaController::class, 'destroy'])->name('destroy');
+Route::get('/dosen', [DosenController::class, 'index']);

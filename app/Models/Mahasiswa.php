@@ -15,7 +15,7 @@ class Mahasiswa extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['id_mahasiswa', 'nama', 'nim', 'jurusan', 'alamat'];
+    // protected $fillable = ['nama', 'nim', 'jurusan', 'alamat'];
     
     public function ktm(){
         return $this->hasOne(Ktm::class, 'id_mahasiswa');

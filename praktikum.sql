@@ -277,7 +277,7 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `ktd`
   ADD PRIMARY KEY (`id_ktd`),
-  ADD UNIQUE KEY `nip` (`nip`),
+  ADD KEY `nip` (`nip`),
   ADD UNIQUE KEY `nidn` (`nidn`);
 
 --
